@@ -38,9 +38,11 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
 
-    NEXT_PUBLIC_APP_URL: process.env.VERCEL_URL
-      ? 'https://' + process.env.VERCEL_URL
-      : process.env.NEXT_PUBLIC_APP_URL,
+    NEXT_PUBLIC_APP_URL:
+      process.env.NEXT_PUBLIC_APP_URL ||
+      (process.env.VERCEL_URL
+        ? 'https://' + process.env.VERCEL_URL
+        : undefined),
 
     BREVO_API_KEY: process.env.BREVO_API_KEY,
 
