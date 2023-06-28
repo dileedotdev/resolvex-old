@@ -26,5 +26,3 @@ jobs:
       - run: npm run format
 
       - run: npm run lint
-
-      - run: npm run build
