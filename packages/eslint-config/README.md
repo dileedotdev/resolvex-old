@@ -1,0 +1,1 @@
+# `@resolvex/eslint-config`

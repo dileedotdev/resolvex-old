@@ -21,8 +21,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: npm ci
+      - uses: pnpm/action-setup@v2
 
-      - run: npm run format
+      - run: pnpm i
 
-      - run: npm run lint
+      - run: pnpm run format:check
+
+      - run: pnpm run lint
+
+      - run: pnpm run type:check
