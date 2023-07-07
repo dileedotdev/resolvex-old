@@ -7,6 +7,7 @@ import { ScrollArea } from '~/components/ui/scroll-area'
 import { Footer } from '~/components/footer'
 import { env } from '~/env'
 import { Toaster } from '~/components/ui/toaster'
+import { Query } from './query'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -111,23 +112,25 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body
-        className={cn([
-          spaceGrotesk.variable,
-          openSans.variable,
-          'dark font-sans',
-          env.NODE_ENV === 'development' ? 'debug-screens' : '',
-        ])}
-      >
-        <ScrollArea className="h-screen w-screen">
-          <Header className="container py-7" />
-          {children}
-          <Footer className="container pb-10 pt-36" />
-        </ScrollArea>
+    <Query>
+      <html lang="en">
+        <body
+          className={cn([
+            spaceGrotesk.variable,
+            openSans.variable,
+            'dark font-sans',
+            env.NODE_ENV === 'development' ? 'debug-screens' : '',
+          ])}
+        >
+          <ScrollArea className="h-screen w-screen">
+            <Header className="container py-7" />
+            {children}
+            <Footer className="container pb-10 pt-36" />
+          </ScrollArea>
 
-        <Toaster />
-      </body>
-    </html>
+          <Toaster />
+        </body>
+      </html>
+    </Query>
   )
 }

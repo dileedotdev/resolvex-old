@@ -28,6 +28,7 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_APP_URL: z.string().url(),
+    NEXT_PUBLIC_API_URL: z.string().url(),
   },
   /*
    * Due to how Next.js bundles environment variables on Edge and Client,
@@ -43,6 +44,8 @@ export const env = createEnv({
       (process.env.VERCEL_URL
         ? 'https://' + process.env.VERCEL_URL
         : undefined),
+
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
 
     BREVO_API_KEY: process.env.BREVO_API_KEY,
 
