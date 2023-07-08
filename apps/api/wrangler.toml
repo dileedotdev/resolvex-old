@@ -1,6 +1,6 @@
 name = "resolvex-api"
 main = "src/worker.ts"
-compatibility_date = "2023-07-06"
+compatibility_date = "2023-07-08"
 
 # # KV Namespace binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/kv
 # [[kv_namespaces]]
@@ -8,9 +8,13 @@ compatibility_date = "2023-07-06"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # # Durable Object binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/durable-objects
-# [[durable_objects]]
-# binding = "MY_DURABLE_OBJECT"
-# class_name = "MyDurableObject"
+[[durable_objects.bindings]]
+name = "DURABLE_OBJECT_RATE_LIMITER"
+class_name = "DurableObjectRateLimiter"
+
+[[migrations]]
+tag = "new-durable-object-rate-limiter-class"
+new_classes = ["DurableObjectRateLimiter"]
 
 # # Bucket binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/kv#bucket
 # [[buckets]]
