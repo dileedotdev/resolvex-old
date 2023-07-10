@@ -1,6 +1,6 @@
 name = "resolvex-api"
 main = "src/worker.ts"
-compatibility_date = "2023-07-08"
+compatibility_date = "2023-07-10"
 
 # # KV Namespace binding - For more information: https://developers.cloudflare.com/workers/runtime-apis/kv
 # [[kv_namespaces]]
@@ -42,3 +42,8 @@ new_classes = ["DurableObjectRateLimiter"]
 
 # [env.shared]
 # SHARED_VARIABLE = "shared_value"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "resolvex-api"
+database_id = "e62302cb-832a-41c7-8022-04bd6f917b2f"

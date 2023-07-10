@@ -10,10 +10,14 @@
     "lint:fix": "eslint --fix --ignore-path=.gitignore .",
     "type:check": "tsc --noEmit",
     "format": "prettier --write --ignore-path=.gitignore .",
-    "format:check": "prettier --check --ignore-path=.gitignore ."
+    "format:check": "prettier --check --ignore-path=.gitignore .",
+    "db:generate": "drizzle-kit generate:sqlite",
+    "db:apply": "wrangler d1 migrations apply resolvex-api --local",
+    "db:apply:prod": "wrangler d1 migrations apply resolvex-api"
   },
   "dependencies": {
     "@trpc/server": "^10.34.0",
+    "drizzle-orm": "^0.27.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
@@ -21,6 +25,7 @@
     "@resolvex/eslint-config": "workspace:^",
     "@resolvex/prettier-config": "workspace:^",
     "concurrently": "^8.2.0",
+    "drizzle-kit": "^0.19.3",
     "tsc-alias": "^1.8.7",
     "typescript": "^5.1.6",
     "wrangler": "^3.1.1"
