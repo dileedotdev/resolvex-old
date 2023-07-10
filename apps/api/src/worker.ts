@@ -24,7 +24,7 @@ export default {
       status: 404,
     })
 
-    response = await handleCorsResponse(response)
+    response = await handleCorsResponse(response, { env })
 
     return response
   },
