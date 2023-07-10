@@ -1,9 +1,9 @@
+import { FeatureSection } from './feature-section'
+import { CubeAnimation } from '~/components/cube-animation'
 import { JointWaitListForm } from '~/components/join-wait-list-form'
 import { SquareLogo } from '~/components/logo'
-import { CubeAnimation } from '~/components/cube-animation'
 import { Button } from '~/components/ui/button'
 import { Light } from '~/components/ui/light'
-import { FeatureSection } from './feature-section'
 
 export default function Home() {
   return (
@@ -11,14 +11,11 @@ export default function Home() {
       <main className="container mt-6 bg-grid-pattern bg-cover bg-center bg-no-repeat lg:mt-10 xl:mt-14">
         <div className="flex flex-col-reverse items-center justify-between gap-16 lg:flex-row lg:gap-28 xl:gap-44">
           <div>
-            <h1 className="text-center font-title text-5xl font-bold lg:text-left">
-              Your support center
-            </h1>
+            <h1 className="text-center font-title text-5xl font-bold lg:text-left">Your support center</h1>
             <div className="mt-3 max-w-lg lg:max-w-xl">
               <p className="text-center font-light text-muted-foreground  lg:text-left">
-                We bring the simple and powerful to your support center. Help
-                you support your customers by all over the channels by the power
-                of
+                We bring the simple and powerful to your support center. Help you support your customers by all over the
+                channels by the power of
                 <SquareLogo className="ml-1.5 inline-block" />
               </p>
             </div>

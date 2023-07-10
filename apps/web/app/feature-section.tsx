@@ -1,7 +1,6 @@
 'use client'
 
-import { Combine, Hand, Workflow, BrainCircuit } from 'lucide-react'
-
+import { BrainCircuit, Combine, Hand, Workflow } from 'lucide-react'
 import { FeatureCard } from '~/components/feature-card'
 import { useMediaQuery } from '~/hooks/use-media-query'
 
@@ -15,14 +14,12 @@ const features = [
   {
     icon: <BrainCircuit className="h-[22px] w-auto" />,
     title: 'Power of ChatGPT',
-    description:
-      'We utilize the power of ChatGPT help your support center automatically help you a part of answers',
+    description: 'We utilize the power of ChatGPT help your support center automatically help you a part of answers',
   },
   {
     icon: <Workflow className="h-[22px] w-auto" />,
     title: 'Design for Developers',
-    description:
-      'We bring the powerful of integration with good DX and more we are open source.',
+    description: 'We bring the powerful of integration with good DX and more we are open source.',
   },
   {
     icon: <Hand className="h-[22px] w-auto" />,

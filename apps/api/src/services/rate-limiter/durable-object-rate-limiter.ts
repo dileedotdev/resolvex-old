@@ -16,9 +16,7 @@ export class DurableObjectRateLimiter implements DurableObject {
     const key = '_DURATION:' + duration + '_LIMIT:' + limit
 
     const value = await this.state.storage.get<string>(key)
-    const data: { count: number; unit: number } = value
-      ? JSON.parse(value)
-      : { count: 0, unit: 0 }
+    const data: { count: number; unit: number } = value ? JSON.parse(value) : { count: 0, unit: 0 }
     const now = this.convertToUnit(new Date(), duration)
 
     if (now > data.unit) {
@@ -31,9 +29,7 @@ export class DurableObjectRateLimiter implements DurableObject {
     data.count += 1
     await this.state.storage.put(key, JSON.stringify(data))
 
-    return data.count > limit
-      ? new Response('Rate limit exceeded', { status: 429 })
-      : new Response('OK')
+    return data.count > limit ? new Response('Rate limit exceeded', { status: 429 }) : new Response('OK')
   }
 
   private convertToUnit(date: Date, duration: number): number {

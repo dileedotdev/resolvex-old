@@ -1,17 +1,11 @@
+import * as schema from './schema'
+import { RateLimiter } from './services/rate-limiter'
+import { type Env } from './worker.env'
 import { initTRPC } from '@trpc/server'
 import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch'
 import { drizzle } from 'drizzle-orm/d1'
-import { type Env } from './worker.env'
-import { RateLimiter } from './services/rate-limiter'
-import * as schema from './schema'
 
-export const createContext = ({
-  env,
-  ec,
-}: {
-  env: Env
-  ec: ExecutionContext
-}) => {
+export const createContext = ({ env, ec }: { env: Env; ec: ExecutionContext }) => {
   return async (opts: FetchCreateContextFnOptions) => {
     const rateLimiter = new RateLimiter({
       DURABLE_OBJECT_RATE_LIMITER: env.DURABLE_OBJECT_RATE_LIMITER,

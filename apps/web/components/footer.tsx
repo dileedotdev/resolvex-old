@@ -24,11 +24,7 @@ export function Footer({ className }: FooterProps) {
       <div className="@2xl:flex @2xl:items-center @2xl:justify-between">
         <div className="flex justify-center space-x-6 @2xl:order-2">
           {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-muted-foreground/60 hover:text-muted-foreground"
-            >
+            <a key={item.name} href={item.href} className="text-muted-foreground/60 hover:text-muted-foreground">
               <span className="sr-only">{item.name}</span>
               {item.icon}
             </a>

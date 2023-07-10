@@ -40,19 +40,14 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
 
     NEXT_PUBLIC_APP_URL:
-      process.env.NEXT_PUBLIC_APP_URL ||
-      (process.env.VERCEL_URL
-        ? 'https://' + process.env.VERCEL_URL
-        : undefined),
+      process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : undefined),
 
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
 
     BREVO_API_KEY: process.env.BREVO_API_KEY,
 
-    BREVO_LIST_ID_FOR_JOIN_WAITLIST:
-      process.env.BREVO_LIST_ID_FOR_JOIN_WAITLIST,
+    BREVO_LIST_ID_FOR_JOIN_WAITLIST: process.env.BREVO_LIST_ID_FOR_JOIN_WAITLIST,
 
-    BREVO_TEMPLATE_ID_FOR_JOIN_WAITLIST:
-      process.env.BREVO_TEMPLATE_ID_FOR_JOIN_WAITLIST,
+    BREVO_TEMPLATE_ID_FOR_JOIN_WAITLIST: process.env.BREVO_TEMPLATE_ID_FOR_JOIN_WAITLIST,
   },
 })

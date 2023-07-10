@@ -19,7 +19,7 @@ export function Query({ children }: { children: React.ReactNode }) {
           },
         }),
       ],
-    })
+    }),
   )
 
   return (

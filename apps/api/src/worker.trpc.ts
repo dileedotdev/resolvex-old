@@ -1,7 +1,7 @@
-import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
-import { appRouter } from './trpc.router'
 import { createContext } from './trpc'
+import { appRouter } from './trpc.router'
 import type { Env } from './worker.env'
+import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
 
 export async function handleTrpcRequest(
   request: Request,
@@ -11,7 +11,7 @@ export async function handleTrpcRequest(
   }: {
     env: Env
     ec: ExecutionContext
-  }
+  },
 ) {
   const url = new URL(request.url)
 

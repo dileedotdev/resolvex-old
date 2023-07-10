@@ -1,5 +1,5 @@
-import { cn } from '~/lib/utils'
 import { Light } from './ui/light'
+import { cn } from '~/lib/utils'
 
 export interface FeatureCardProps {
   icon: React.ReactNode
@@ -9,13 +9,7 @@ export interface FeatureCardProps {
   orientation?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
 }
 
-export function FeatureCard({
-  icon,
-  title,
-  description,
-  className,
-  orientation = 'top-left',
-}: FeatureCardProps) {
+export function FeatureCard({ icon, title, description, className, orientation = 'top-left' }: FeatureCardProps) {
   return (
     <div
       className={cn(
@@ -24,7 +18,7 @@ export function FeatureCard({
         orientation === 'top-right' && 'border-t',
         orientation === 'bottom-left' && 'border-b',
         orientation === 'bottom-right' && 'border-b',
-        className
+        className,
       )}
     >
       <Light
@@ -33,7 +27,7 @@ export function FeatureCard({
           orientation === 'top-left' && 'left-0 top-0',
           orientation === 'top-right' && 'right-0 top-0',
           orientation === 'bottom-left' && 'bottom-0 left-0',
-          orientation === 'bottom-right' && 'bottom-0 right-0'
+          orientation === 'bottom-right' && 'bottom-0 right-0',
         )}
       />
 

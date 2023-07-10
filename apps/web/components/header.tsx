@@ -1,6 +1,6 @@
-import React from 'react'
 import { Logo } from './logo'
 import Link from 'next/link'
+import React from 'react'
 
 export function Header({ ...props }: React.HTMLAttributes<HTMLElement>) {
   return (

@@ -1,9 +1,4 @@
-import {
-  sqliteTable,
-  integer,
-  text,
-  uniqueIndex,
-} from 'drizzle-orm/sqlite-core'
+import { integer, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core'
 
 export const users = sqliteTable(
   'users',
@@ -14,5 +9,5 @@ export const users = sqliteTable(
   },
   (table) => ({
     email_unique: uniqueIndex('unique_email').on(table.email),
-  })
+  }),
 )

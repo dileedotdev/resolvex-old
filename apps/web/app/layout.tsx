@@ -1,13 +1,13 @@
 import './globals.css'
+import { Query } from './query'
+import { Open_Sans, Space_Grotesk } from 'next/font/google'
 import React from 'react'
-import { Space_Grotesk, Open_Sans } from 'next/font/google'
-import { cn } from '~/lib/utils'
+import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { ScrollArea } from '~/components/ui/scroll-area'
-import { Footer } from '~/components/footer'
-import { env } from '~/env'
 import { Toaster } from '~/components/ui/toaster'
-import { Query } from './query'
+import { env } from '~/env'
+import { cn } from '~/lib/utils'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -106,11 +106,7 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <Query>
       <html lang="en">

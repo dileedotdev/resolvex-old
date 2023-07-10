@@ -7,10 +7,7 @@ export async function handleCorsRequest(request: Request) {
   }
 }
 
-export async function handleCorsResponse(
-  response: Response,
-  { env }: { env: Env }
-) {
+export async function handleCorsResponse(response: Response, { env }: { env: Env }) {
   response.headers.set('Access-Control-Allow-Origin', env.CORS_ALLOW_ORIGIN)
   response.headers.set('Access-Control-Allow-Methods', '*')
   response.headers.set('Access-Control-Allow-Headers', '*')

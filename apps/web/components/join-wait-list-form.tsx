@@ -1,20 +1,13 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
-import { useAction } from 'next-safe-action/hook'
-import { ChevronRight } from 'lucide-react'
-
-import { cn } from '~/lib/utils'
-import {
-  joinWaitlist,
-  type JoinWaitlistInput,
-} from './join-wait-list-form.action'
+import { type JoinWaitlistInput, joinWaitlist } from './join-wait-list-form.action'
 import { useToast } from './ui/use-toast'
+import { ChevronRight } from 'lucide-react'
+import { useAction } from 'next-safe-action/hook'
+import { useForm } from 'react-hook-form'
+import { cn } from '~/lib/utils'
 
-export function JointWaitListForm({
-  className,
-  ...props
-}: React.ComponentProps<'form'>) {
+export function JointWaitListForm({ className, ...props }: React.ComponentProps<'form'>) {
   const { toast } = useToast()
   const { register, handleSubmit } = useForm<JoinWaitlistInput>()
   const { execute } = useAction(joinWaitlist, {
@@ -38,11 +31,7 @@ export function JointWaitListForm({
   })
 
   return (
-    <form
-      className={cn(['relative w-full p-1 @container', className])}
-      onSubmit={onSubmit}
-      {...props}
-    >
+    <form className={cn(['relative w-full p-1 @container', className])} onSubmit={onSubmit} {...props}>
       <div className="absolute inset-0  -z-20 rounded-md bg-gradient-to-r from-red-700 to-orange-700 blur-sm" />
       <div className="absolute inset-0  -z-10 rounded-md bg-background" />
 
