@@ -20,6 +20,8 @@ const openSans = Open_Sans({
   variable: '--font-open-sans',
 })
 
+export const runtime = 'edge'
+
 export const metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: {

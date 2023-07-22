@@ -6,6 +6,8 @@
     "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start --port 3000",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:start": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type:check": "tsc --noEmit",
@@ -31,7 +33,7 @@
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
     "lucide-react": "^0.252.0",
-    "next": "13.4.8",
+    "next": "13.4.12",
     "next-safe-action": "^2.7.0",
     "postcss": "8.4.24",
     "react": "18.2.0",
@@ -44,9 +46,11 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.3.1",
     "@resolvex/eslint-config": "workspace:^",
     "@resolvex/prettier-config": "workspace:^",
     "api": "workspace:^",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "wrangler": "^3.1.1"
   }
 }

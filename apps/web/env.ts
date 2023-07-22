@@ -9,15 +9,17 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(['development', 'test', 'production']),
 
-    BREVO_API_KEY: z.string(),
+    BREVO_API_KEY: z.string().nonempty(),
 
     BREVO_LIST_ID_FOR_JOIN_WAITLIST: z
       .string()
+      .nonempty()
       .transform(Number)
       .refine((v) => v > 0),
 
     BREVO_TEMPLATE_ID_FOR_JOIN_WAITLIST: z
       .string()
+      .nonempty()
       .transform(Number)
       .refine((v) => v > 0),
   },
