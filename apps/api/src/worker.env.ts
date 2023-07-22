@@ -7,7 +7,7 @@ export const envSchema = z.object({
   DB: z.custom<D1Database>((value) => {
     return typeof value === 'object'
   }),
-  CORS_ALLOW_ORIGIN: z.string().url(),
+  WEB_URL: z.string().url(),
 })
 
 export type Env = z.infer<typeof envSchema>
