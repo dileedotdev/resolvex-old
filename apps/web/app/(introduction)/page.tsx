@@ -1,4 +1,4 @@
-import { FeatureSection } from './feature-section'
+import { FeatureSection } from '../feature-section'
 import { CubeAnimation } from '~/components/cube-animation'
 import { JointWaitListForm } from '~/components/join-wait-list-form'
 import { SquareLogo } from '~/components/logo'

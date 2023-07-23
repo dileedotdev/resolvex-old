@@ -1,12 +1,14 @@
 'use client'
 
+import { useAuth } from '@clerk/nextjs'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink } from '@trpc/client'
 import React, { useState } from 'react'
 import { env } from '~/env'
 import { trpc } from '~/lib/trpc'
 
-export function Query({ children }: { children: React.ReactNode }) {
+export function QueryProvider({ children }: { children: React.ReactNode }) {
+  const { getToken } = useAuth()
   const [queryClient] = useState(() => new QueryClient())
   const [trpcClient] = useState(() =>
     trpc.createClient({
@@ -15,7 +17,14 @@ export function Query({ children }: { children: React.ReactNode }) {
           url: env.NEXT_PUBLIC_API_URL + '/trpc',
 
           async headers() {
-            return {}
+            const headers: Record<string, string> = {}
+
+            const bearer = await getToken()
+            if (bearer) {
+              headers.Authorization = `Bearer ${bearer}`
+            }
+
+            return headers
           },
         }),
       ],

@@ -8,6 +8,7 @@ export const envSchema = z.object({
     return typeof value === 'object'
   }),
   WEB_URL: z.string().url(),
+  CLERK_JWT_PUBLIC_KEY: z.string().nonempty(),
 })
 
 export type Env = z.infer<typeof envSchema>

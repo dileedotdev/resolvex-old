@@ -1,10 +1,8 @@
 import './globals.css'
-import { Query } from './query'
+import { QueryProvider } from './query-provider'
+import { ClerkProvider } from '@clerk/nextjs'
 import { Open_Sans, Space_Grotesk } from 'next/font/google'
 import React from 'react'
-import { Footer } from '~/components/footer'
-import { Header } from '~/components/header'
-import { ScrollArea } from '~/components/ui/scroll-area'
 import { Toaster } from '~/components/ui/toaster'
 import { env } from '~/env'
 import { cn } from '~/lib/utils'
@@ -110,25 +108,22 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Query>
-      <html lang="en">
-        <body
-          className={cn([
-            spaceGrotesk.variable,
-            openSans.variable,
-            'dark font-sans',
-            env.NODE_ENV === 'development' ? 'debug-screens' : '',
-          ])}
-        >
-          <ScrollArea className="h-screen w-screen">
-            <Header className="container py-7" />
+    <ClerkProvider>
+      <QueryProvider>
+        <html lang="en">
+          <body
+            className={cn([
+              spaceGrotesk.variable,
+              openSans.variable,
+              'font-sans',
+              env.NODE_ENV === 'development' ? 'debug-screens' : '',
+            ])}
+          >
             {children}
-            <Footer className="container pb-10 pt-36" />
-          </ScrollArea>
-
-          <Toaster />
-        </body>
-      </html>
-    </Query>
+            <Toaster />
+          </body>
+        </html>
+      </QueryProvider>
+    </ClerkProvider>
   )
 }

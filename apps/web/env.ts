@@ -22,6 +22,8 @@ export const env = createEnv({
       .nonempty()
       .transform(Number)
       .refine((v) => v > 0),
+
+    CLERK_SECRET_KEY: z.string().nonempty(),
   },
   /*
    * Environment variables available on the client (and server).
@@ -31,6 +33,11 @@ export const env = createEnv({
   client: {
     NEXT_PUBLIC_APP_URL: z.string().url(),
     NEXT_PUBLIC_API_URL: z.string().url(),
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().nonempty(),
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string().nonempty(),
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string().nonempty(),
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: z.string().nonempty(),
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: z.string().nonempty(),
   },
   /*
    * Due to how Next.js bundles environment variables on Edge and Client,
@@ -51,5 +58,12 @@ export const env = createEnv({
     BREVO_LIST_ID_FOR_JOIN_WAITLIST: process.env.BREVO_LIST_ID_FOR_JOIN_WAITLIST,
 
     BREVO_TEMPLATE_ID_FOR_JOIN_WAITLIST: process.env.BREVO_TEMPLATE_ID_FOR_JOIN_WAITLIST,
+
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL,
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL,
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL,
   },
 })
