@@ -3,12 +3,12 @@
 import { useAuth } from '@clerk/nextjs'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink } from '@trpc/client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { env } from '~/env'
 import { trpc } from '~/lib/trpc'
 
 export function QueryProvider({ children }: { children: React.ReactNode }) {
-  const { getToken } = useAuth()
+  const { getToken, userId, orgId } = useAuth()
   const [queryClient] = useState(() => new QueryClient())
   const [trpcClient] = useState(() =>
     trpc.createClient({
@@ -30,6 +30,10 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
       ],
     }),
   )
+
+  useEffect(() => {
+    queryClient.invalidateQueries()
+  }, [userId, orgId])
 
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>

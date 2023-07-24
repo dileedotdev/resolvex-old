@@ -1,7 +1,7 @@
 import './globals.css'
 import { QueryProvider } from './query-provider'
 import { ClerkProvider } from '@clerk/nextjs'
-import { Open_Sans, Space_Grotesk } from 'next/font/google'
+import { Inter, Space_Grotesk } from 'next/font/google'
 import React from 'react'
 import { Toaster } from '~/components/ui/toaster'
 import { env } from '~/env'
@@ -13,9 +13,9 @@ const spaceGrotesk = Space_Grotesk({
   weight: ['500'],
 })
 
-const openSans = Open_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-open-sans',
+  variable: '--font-inter',
 })
 
 export const runtime = 'edge'
@@ -114,7 +114,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <body
             className={cn([
               spaceGrotesk.variable,
-              openSans.variable,
+              inter.variable,
               'font-sans',
               env.NODE_ENV === 'development' ? 'debug-screens' : '',
             ])}

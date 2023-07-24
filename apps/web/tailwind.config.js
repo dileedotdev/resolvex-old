@@ -14,7 +14,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-open-sans)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
         title: ['var(--font-space-grotesk)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
