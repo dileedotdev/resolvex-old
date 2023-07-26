@@ -1,3 +1,9 @@
+import { CustomerList } from './customer-list'
+
 export default function DashboardPage() {
-  return <div>TODO: Dashboard Paged</div>
+  return (
+    <div className="px-4 py-8">
+      <CustomerList />
+    </div>
+  )
 }

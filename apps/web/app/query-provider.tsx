@@ -33,7 +33,7 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     queryClient.invalidateQueries()
-  }, [userId, orgId])
+  }, [userId, orgId, queryClient])
 
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>

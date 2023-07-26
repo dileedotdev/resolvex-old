@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 export const envSchema = z.object({
+  WORKER_ENV: z.enum(['development', 'test', 'production']).default('production'),
   DURABLE_OBJECT_RATE_LIMITER: z.custom<DurableObjectNamespace>((value) => {
     return typeof value === 'object'
   }),

@@ -44,15 +44,15 @@ export function CustomerStatusSelector({ hideTitle = false }: { hideTitle?: bool
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
             <path
               fill="currentColor"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm0 2c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
             <path
               fill="currentColor"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 2a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
           <span className="hidden @[240px]:inline">Helping</span>
@@ -84,9 +84,9 @@ export function CustomerStatusSelector({ hideTitle = false }: { hideTitle?: bool
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
             <path
               fill="currentColor"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M15.9 2.788A9.738 9.738 0 0 0 12 2a9.738 9.738 0 0 0-3.9.788 10.099 10.099 0 0 0-3.175 2.137c-.9.9-1.612 1.958-2.137 3.175A9.738 9.738 0 0 0 2 12c0 1.383.263 2.683.788 3.9a10.098 10.098 0 0 0 2.137 3.175c.9.9 1.958 1.613 3.175 2.137A9.738 9.738 0 0 0 12 22a9.738 9.738 0 0 0 3.9-.788 10.098 10.098 0 0 0 3.175-2.137c.9-.9 1.613-1.958 2.137-3.175A9.738 9.738 0 0 0 22 12a9.738 9.738 0 0 0-.788-3.9 10.099 10.099 0 0 0-2.137-3.175c-.9-.9-1.958-1.612-3.175-2.137Zm-9.563 3.55C7.897 4.779 9.784 4 12 4s4.104.78 5.663 2.338C19.22 7.896 20 9.783 20 12s-.78 4.104-2.337 5.663C16.104 19.22 14.217 20 12 20s-4.104-.78-5.662-2.337C4.779 16.104 4 14.217 4 12s.78-4.104 2.338-5.662Zm7.956 9.37a1 1 0 0 0 1.414-1.415L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
           <span className="hidden @[240px]:inline">Spam</span>

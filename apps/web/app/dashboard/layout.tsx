@@ -2,6 +2,7 @@ import { CollapsibleCustomerStatusSelector } from './collapsible-customer-status
 import { CustomerStatusSelector } from './customer-status-selector'
 import { Header } from './header'
 import { SecurePage } from './secure-page'
+import { ScrollArea } from '~/components/ui/scroll-area'
 
 export const metadata = {
   title: 'Dashboard',
@@ -10,7 +11,7 @@ export const metadata = {
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <div className="border-b">
+      <div className="h-[70px] border-b">
         <Header />
       </div>
       <SecurePage>
@@ -21,7 +22,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <div className="block border-b pb-2 md:hidden">
             <CollapsibleCustomerStatusSelector />
           </div>
-          <div className="flex-1">{children}</div>
+          <div className="flex-1 md:border-l">
+            <ScrollArea className="md:h-[calc(100vh-70px)]">{children}</ScrollArea>
+          </div>
         </div>
       </SecurePage>
     </div>

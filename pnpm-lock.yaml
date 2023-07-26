@@ -26,6 +26,9 @@ importers:
       jose:
         specifier: ^4.14.4
         version: 4.14.4
+      nanoid:
+        specifier: ^4.0.2
+        version: 4.0.2
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -226,6 +229,9 @@ importers:
       react-hook-form:
         specifier: ^7.45.1
         version: 7.45.1(react@18.2.0)
+      react-in-viewport:
+        specifier: 1.0.0-alpha.30
+        version: 1.0.0-alpha.30(react-dom@18.2.0)(react@18.2.0)
       tailwind-merge:
         specifier: ^1.13.2
         version: 1.13.2
@@ -7473,6 +7479,12 @@ packages:
     resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
     dev: true
 
+  /hoist-non-react-statics@3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
+    dependencies:
+      react-is: 16.13.1
+    dev: false
+
   /http-cache-semantics@4.1.1:
     resolution: {integrity: sha512-er295DKPVsV82j5kw1Gjt+ADA/XYHsajl82cGNQG2eyoPkvgUhX+nDIyelzhIWbbsXP39EHcI6l5tYs2FYqYXQ==}
     dev: true
@@ -8816,6 +8828,12 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  /nanoid@4.0.2:
+    resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
+
   /napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     dev: true
@@ -9802,6 +9820,17 @@ packages:
       react: ^16.8.0 || ^17 || ^18
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /react-in-viewport@1.0.0-alpha.30(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-fmjnsfWM+D739UKgQNY9E03Bjf+q9iTwMqwqXboThlfYZ7yLWXEGvTNsCPKwDYlrPinDX8/nZl4wAABsc5OH7w==}
+    peerDependencies:
+      react: ^16.8.3 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.3 || ^17.0.0 || ^18.0.0
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-is@16.13.1:

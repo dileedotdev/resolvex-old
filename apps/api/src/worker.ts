@@ -6,6 +6,10 @@ export default {
   async fetch(request: Request, unvalidatedEnv: unknown, ec: ExecutionContext): Promise<Response> {
     const env = envSchema.parse(unvalidatedEnv)
 
+    if (env.WORKER_ENV === 'development') {
+      await new Promise((resolve) => setTimeout(resolve, 300))
+    }
+
     let response: Response | undefined = undefined
 
     response ??= await handleCorsRequest(request)
