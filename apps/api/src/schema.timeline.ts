@@ -1,10 +1,15 @@
+import { nanoid } from 'nanoid'
 import z from 'zod'
 
-const chatSchema = z.object({
+export const chatSchema = z.object({
   type: z.literal('chat'),
   message: z.string(),
 })
 
-export const dataColumnSchema = chatSchema
+export const timelineDataColumnSchema = chatSchema
 
-export type DataColumnType = z.infer<typeof dataColumnSchema>
+export const timelineIdColumnSchema = z.string().startsWith('t_')
+
+export function generateTimelineId() {
+  return 't_' + nanoid()
+}

@@ -30,7 +30,17 @@ const t = initTRPC.context<ReturnType<typeof createContext>>().create()
 
 export const router = t.router
 export const middleware = t.middleware
-export const publicProcedure = t.procedure
+export const publicProcedure = t.procedure.use(async ({ ctx, next }) => {
+  const { resHeaders } = ctx
+
+  if (!resHeaders.get('Cache-Control')) {
+    resHeaders.set('Cache-Control', `public ,s-maxage=1, stale-while-revalidate=${60 * 60 * 24}`)
+  }
+
+  return next({
+    ctx,
+  })
+})
 
 const authed = middleware(async ({ ctx, next }) => {
   const { req, env } = ctx
@@ -71,12 +81,16 @@ const authed = middleware(async ({ ctx, next }) => {
     })
   }
 
-  return next({
+  const response = await next({
     ctx: {
       ...ctx,
       auth,
     },
   })
+
+  ctx.resHeaders.set('Cache-Control', 'private, max-age=1, stale-while-revalidate=1')
+
+  return response
 })
 
 export const authedProcedure = publicProcedure.use(authed)

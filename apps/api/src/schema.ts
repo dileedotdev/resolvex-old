@@ -1,6 +1,7 @@
-import type { DataColumnType } from './schema.timeline'
+import type { timelineDataColumnSchema } from './schema.timeline'
 import { relations } from 'drizzle-orm'
 import { customType, index, integer, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core'
+import type { z } from 'zod'
 
 export const customers = sqliteTable(
   'customers',
@@ -27,12 +28,13 @@ export const timelines = sqliteTable(
   {
     id: text('id').notNull().primaryKey(),
     customerId: text('customer_id').notNull(),
-    data: customType<{ data: DataColumnType; driverData: string }>({
+    creatorId: text('creator_id'), // can be user_id or customer_id or null for system bot
+    data: customType<{ data: z.infer<typeof timelineDataColumnSchema>; driverData: string }>({
       dataType: () => 'TEXT',
       toDriver: (value) => JSON.stringify(value),
       fromDriver: (value) => JSON.parse(value),
     })('data').notNull(),
-    type: customType<{ data: DataColumnType['type']; default: true }>({
+    type: customType<{ data: z.infer<typeof timelineDataColumnSchema>['type']; default: true }>({
       dataType: () => "AS (json_extract(`data`, '$.type')) STORED",
     })('type').notNull(),
     createdAt: integer('created_at').notNull(),

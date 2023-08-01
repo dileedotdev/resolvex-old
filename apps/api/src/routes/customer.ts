@@ -1,6 +1,8 @@
+import { TRPCError } from '@trpc/server'
 import { and, eq, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { customers } from '~/schema'
+import { customerIdColumnSchema } from '~/schema.customer'
 import { orgedProcedure, router } from '~/trpc'
 
 export const customer = router({
@@ -51,4 +53,27 @@ export const customer = router({
         },
       }
     }),
+
+  detail: orgedProcedure.input(z.object({ id: customerIdColumnSchema })).query(async ({ input, ctx }) => {
+    const { db } = ctx
+    const { id } = input
+
+    const data = await db.query.customers.findFirst({
+      where: (t, { eq, and }) => and(eq(t.id, id), eq(t.orgId, ctx.auth.org_id)),
+      columns: {
+        id: true,
+        name: true,
+        email: true,
+        status: true,
+      },
+    })
+
+    if (!data) {
+      throw new TRPCError({
+        code: 'NOT_FOUND',
+      })
+    }
+
+    return data
+  }),
 })

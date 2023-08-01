@@ -1,0 +1,1 @@
+ALTER TABLE timelines ADD `creator_id` text;

@@ -3,7 +3,7 @@ import { Logo } from '~/components/logo'
 
 export function Header() {
   return (
-    <header className="flex items-center justify-between px-4 py-4 @container">
+    <header className="flex h-[57px] items-center justify-between px-4 py-4 @container">
       <div className="flex items-start gap-5">
         <div className="hidden @xl:block">
           <Logo className="h-8 w-auto " />

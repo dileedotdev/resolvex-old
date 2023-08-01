@@ -14,7 +14,7 @@ export default authMiddleware({
     const response = NextResponse.next()
 
     if (!auth.isPublicRoute) {
-      response.headers.set('cache-control', 'private')
+      response.headers.set('Cache-Control', 'private, max-age=1, stale-while-revalidate=1')
     }
 
     return response

@@ -118,6 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               'font-sans',
               env.NODE_ENV === 'development' ? 'debug-screens' : '',
             ])}
+            suppressHydrationWarning
           >
             {children}
             <Toaster />

@@ -10,6 +10,7 @@ export const envSchema = z.object({
   }),
   WEB_URL: z.string().url(),
   CLERK_JWT_PUBLIC_KEY: z.string().nonempty(),
+  CLERK_SECRET_KEY: z.string().nonempty(),
 })
 
 export type Env = z.infer<typeof envSchema>
