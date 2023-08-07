@@ -1,1 +1,0 @@
-# `@resolvex/prettier-config`

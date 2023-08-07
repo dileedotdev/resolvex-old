@@ -1,0 +1,38 @@
+{
+	"$schema": "./node_modules/rome/configuration_schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"formatter": {
+		"enabled": true,
+		"lineWidth": 120,
+		"ignore": [
+			".vscode",
+			"**/.next/**/*",
+			"**/.wrangler/**/*",
+			"**/.turbo/**/*",
+			"**/.vercel/**/*",
+			"tsconfig.base.json"
+		]
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		},
+		"ignore": [
+			".vscode",
+			"**/.next/**/*",
+			"**/.wrangler/**/*",
+			"**/.turbo/**/*",
+			"**/.vercel/**/*",
+			"tsconfig.base.json"
+		]
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "asNeeded"
+		}
+	}
+}

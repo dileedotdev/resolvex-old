@@ -1,29 +1,32 @@
 import { handleCorsRequest, handleCorsResponse } from './worker.cors'
 import { envSchema } from './worker.env'
+import { initedRateLimiter } from './worker.rate-limiter'
 import { handleTrpcRequest } from './worker.trpc'
 
 export default {
-  async fetch(request: Request, unvalidatedEnv: unknown, ec: ExecutionContext): Promise<Response> {
-    const env = envSchema.parse(unvalidatedEnv)
+	async fetch(request: Request, unvalidatedEnv: unknown, ec: ExecutionContext): Promise<Response> {
+		const env = envSchema.parse(unvalidatedEnv)
 
-    if (env.WORKER_ENV === 'development') {
-      await new Promise((resolve) => setTimeout(resolve, 300))
-    }
+		if (env.WORKER_ENV === 'development') {
+			await new Promise((resolve) => setTimeout(resolve, 300))
+		}
 
-    let response: Response | undefined = undefined
+		let response: Response | undefined = undefined
 
-    response ??= await handleCorsRequest(request)
+		response ??= await handleCorsRequest(request)
 
-    response ??= await handleTrpcRequest(request, { env, ec })
+		response ??= await handleTrpcRequest(request, { env, ec })
 
-    response ??= new Response('Not found', {
-      status: 404,
-    })
+		response ??= new Response('Not found', {
+			status: 404,
+		})
 
-    response = await handleCorsResponse(response, { env })
+		response = await handleCorsResponse(response, { env })
 
-    return response
-  },
+		return response
+	},
 }
 
-export { DurableObjectRateLimiter } from './services/rate-limiter'
+const { Durable: DurableObjectRateLimiter } = initedRateLimiter
+
+export { DurableObjectRateLimiter }

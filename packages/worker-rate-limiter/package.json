@@ -1,0 +1,9 @@
+{
+	"name": "@resolvex/worker-rate-limiter",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {},
+	"dependencies": {
+		"zod": "^3.21.4"
+	}
+}
