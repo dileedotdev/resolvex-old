@@ -1,0 +1,10 @@
+{
+	"name": "@resolvex/broadcast-worker",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {},
+	"dependencies": {
+		"@resolvex/broadcast-shared": "workspace:^",
+		"zod": "^3.21.4"
+	}
+}

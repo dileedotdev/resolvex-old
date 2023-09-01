@@ -38,6 +38,7 @@ export const env = createEnv({
 		NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string().nonempty(),
 		NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: z.string().nonempty(),
 		NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: z.string().nonempty(),
+		NEXT_PUBLIC_BROADCAST_URL: z.string().startsWith('ws'),
 	},
 	/*
 	 * Due to how Next.js bundles environment variables on Edge and Client,
@@ -65,5 +66,6 @@ export const env = createEnv({
 		NEXT_PUBLIC_CLERK_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL,
 		NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL,
 		NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL,
+		NEXT_PUBLIC_BROADCAST_URL: process.env.NEXT_PUBLIC_BROADCAST_URL,
 	},
 })

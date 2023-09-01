@@ -1,27 +1,28 @@
 {
-    "name": "api",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-        "deploy": "wrangler deploy",
-        "dev": "wrangler dev --port 3001",
-        "db:generate": "drizzle-kit generate:sqlite",
-        "db:apply": "wrangler d1 migrations apply resolvex-api --local",
-        "db:apply:prod": "wrangler d1 migrations apply resolvex-api"
-    },
-    "dependencies": {
-        "@resolvex/worker-rate-limiter": "workspace:^",
-        "@trpc/server": "^10.37.1",
-        "drizzle-orm": "^0.27.0",
-        "jose": "^4.14.4",
-        "nanoid": "^4.0.2",
-        "zod": "^3.21.4"
-    },
-    "devDependencies": {
-        "@cloudflare/workers-types": "^4.20230628.0",
-        "concurrently": "^8.2.0",
-        "drizzle-kit": "^0.19.3",
-        "tsc-alias": "^1.8.7",
-        "wrangler": "^3.1.1"
-    }
+	"name": "api",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev --port 3001",
+		"db:generate": "drizzle-kit generate:sqlite",
+		"db:apply": "wrangler d1 migrations apply resolvex-api --local",
+		"db:apply:prod": "wrangler d1 migrations apply resolvex-api"
+	},
+	"dependencies": {
+		"@resolvex/broadcast-worker": "workspace:^",
+		"@resolvex/worker-rate-limiter": "workspace:^",
+		"@trpc/server": "^10.37.1",
+		"drizzle-orm": "^0.27.0",
+		"jose": "^4.14.4",
+		"nanoid": "^4.0.2",
+		"zod": "^3.21.4"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20230628.0",
+		"concurrently": "^8.2.0",
+		"drizzle-kit": "^0.19.3",
+		"tsc-alias": "^1.8.7",
+		"wrangler": "^3.4.0"
+	}
 }

@@ -1,3 +1,4 @@
+import { BroadcastProvider } from './broadcast-provider'
 import './globals.css'
 import { QueryProvider } from './query-provider'
 import { ClerkProvider } from '@clerk/nextjs'
@@ -114,20 +115,22 @@ export default function RootLayout({
 	return (
 		<ClerkProvider>
 			<QueryProvider>
-				<html lang='en'>
-					<body
-						className={cn([
-							spaceGrotesk.variable,
-							inter.variable,
-							'font-sans',
-							env.NODE_ENV === 'development' ? 'debug-screens' : '',
-						])}
-						suppressHydrationWarning
-					>
-						{children}
-						<Toaster />
-					</body>
-				</html>
+				<BroadcastProvider>
+					<html lang='en'>
+						<body
+							className={cn([
+								spaceGrotesk.variable,
+								inter.variable,
+								'font-sans',
+								env.NODE_ENV === 'development' ? 'debug-screens' : '',
+							])}
+							suppressHydrationWarning
+						>
+							{children}
+							<Toaster />
+						</body>
+					</html>
+				</BroadcastProvider>
 			</QueryProvider>
 		</ClerkProvider>
 	)

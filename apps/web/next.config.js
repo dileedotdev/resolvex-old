@@ -9,6 +9,7 @@ const nextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
+	transpilePackages: ['@resolvex/broadcast-client'],
 }
 
 module.exports = nextConfig
